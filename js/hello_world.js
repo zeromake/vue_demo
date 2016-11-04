@@ -3,5 +3,5 @@ new Vue({
 	data: {
 		mes: 'hello vue'
 	},
-	template: '<span>{{mes}}</span>'
+	template: '<div><input v-model="mes" type="text"><br/><span>{{ mes }}</span></div>'
 });
