@@ -1,26 +1,21 @@
-// 习惯写iife了可以不需要
 (function(require, define){
 	require.config({
         paths: {
-			// vue cdn别名
             'vue': 'https://cdn.bootcss.com/vue/2.0.3/vue',
+			// 使用cdn无法加载找了一下是因为define("ELEMENT",["vue"],t)多了一个"ELEMENT"参数
+			'element': 'element'
         }
     });
-	// 下面的应该放到其他文件中
 	define(function (require, exports, module) {
-		// 使用别名加载vue
+		var element_ui = require('element');
 		var Vue = require('vue');
+		element_ui.install(Vue);
 		new Vue({
 			el: '#app',
 			data: {
-				mes: 'hello vue to requirejs'
+				mes: 'hello_el-button'
 			},
-			template: '<span>{{ mes }}</span>'
+			template: '<el-button>{{ mes }}</el-button>'
 		})
 	});
-	/*另一种requirejs的模块声明
-	define(['vue'], function(Vue){
-		
-	});
-	*/
 })(require, define);
