@@ -1,7 +1,7 @@
 (function(define) {
-    define(function(require, exports, module) {
+    define('/js/component1.js', function(require, exports, module) {
         return {
             template: '<span>component1</span>'
         }
     });
-})(define);
+})(webpackJsonpCallback);

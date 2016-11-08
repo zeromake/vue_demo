@@ -15,17 +15,18 @@
         var Vue = require('vue');
         var VueRouter = require('vue-router');
         Vue.use(VueRouter);
+        var webpack_require = require('webpackjsonp');
         var router = new VueRouter({
             routes: [{
                     path: '/component1',
                     component: function(resolve) {
-                        resolve(require('/js/component1.js'));
+                        webpack_require('/js/component1.js', resolve);
                     }
                 },
                 {
                     path: '/component2',
                     component: function(resolve) {
-                        resolve(require('/js/component2.js'));
+                        webpack_require('/js/component2.js', resolve);
                     }
                 },
             ]
